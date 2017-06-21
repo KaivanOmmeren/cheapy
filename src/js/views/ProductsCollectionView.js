@@ -187,7 +187,6 @@ const ProductsCollectionView = BaseView.extend({
             summary: response.products[0].summary,
             imageUrl: response.products[0].images[4].url,
             price: response.products[0].offerData.offers[0].price,
-            //pieces: response.products[0].attributeGroups[2].attributes[0].value,
             pricePerPiece: (response.products[0].offerData.offers[0].price / parseInt(pieces)).toFixed(2),
             availabilityDescription: response.products[0].offerData.offers[0].availabilityDescription,
             offerID: response.products[0].offerData.offers[0].id,
