@@ -1,6 +1,6 @@
-import {view} from 'backbone';
+import BaseView from "./BaseView";
 
-const DropdownView = Backbone.View.extend({
+const DropdownView = BaseView.extend({
     events: {
         'click': 'clickHandler'
     },

@@ -1,6 +1,6 @@
-import {view} from 'backbone';
+import BaseView from "./BaseView";
 
-const SelectBlockView = Backbone.View.extend({
+const SelectBlockView = BaseView.extend({
     initialize: function () {
         App.events.on('configButtonTriggered', this.removeAllSelected, this);
         App.events.on('removeAllSelectedItems', this.removeAllSelected, this);
@@ -28,30 +28,25 @@ const SelectBlockView = Backbone.View.extend({
             $(item).removeClass('selectBlockClicked');
         }
         App.events.trigger('selectedRemoved');
-        //console.log('selectedRemoved triggered');
     },
 
     noneSelected: function () {
         if ($('.selectBlockClicked').length === 0) {
             App.events.trigger('noneSelected');
-            //console.log('there are no items selected');
         }
     },
     reAddSelectedClass: function (data) {
         switch(data.product) {
             case 'diapers': {
                 $('#blockDiapers').toggleClass('selectBlockClicked');
-                //console.log('readding selected class to diapers');
                 break;
             }
             case 'milk': {
                 $('#blockMilk').toggleClass('selectBlockClicked');
-                //console.log('readding selected classs to milk');
                 break;
             }
             case 'babyWipes': {
                 $('#blockBabyWipes').toggleClass('selectBlockClicked');
-                //console.log('readding selected classs to babyWipes');
                 break;
             }
         }

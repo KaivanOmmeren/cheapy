@@ -1,10 +1,9 @@
-import {view} from 'backbone';
+import BaseView from "./BaseView";
 
-const CookieConfigView = Backbone.View.extend({
+const CookieConfigView = BaseView.extend({
     initialize() {
         if (this.model.hasValue()) {
             App.events.once('noneSelected' && 'getData', this.checkForReselectBlock, this);
-            //App.events.on('noneSelected' && 'getData', this.triggerReselectingEvent, this);
             this.animate();
             let cache = $('#dropdownMenuDiapers').children();
             $('#dropdownMenuDiapers').text(this.model.get('diapers')).append(cache);
@@ -43,10 +42,6 @@ const CookieConfigView = Backbone.View.extend({
         App.events.trigger('configButtonTriggered', {
             triggered: false
         });
-        //App.events.off('noneSelected' && 'getData', this.checkForReselectBlock, this);
-        //App.events.on('noneSelected' && 'getData', this.checkForReselectBlock, this);
-        // App.events.off('noneSelected' && 'getData', this.triggerReselectingEvent, this);
-        // App.events.on('noneSelected' && 'getData', this.triggerReselectingEvent, this);
     },
 
     animate: function () {

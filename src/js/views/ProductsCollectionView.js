@@ -1,8 +1,8 @@
-import {view} from 'backbone';
+import BaseView from "./BaseView";
 import _ from 'underscore';
-import ProductsRouter from '../routers/ProductsRouter';
+import ProductsRouter from "../routers/ProductsRouter";
 
-const ProductsCollectionView = Backbone.View.extend({
+const ProductsCollectionView = BaseView.extend({
     templateProductsOverview: '',
     templateProductsDetail: '',
     templateError: '',

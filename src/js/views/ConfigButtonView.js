@@ -1,6 +1,6 @@
-import {view} from 'backbone';
+import BaseView from "./BaseView";
 
-const ConfigButtonView = Backbone.View.extend({
+const ConfigButtonView = BaseView.extend({
     events: {
         'click': 'clickHandler'
     },
