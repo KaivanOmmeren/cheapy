@@ -5,6 +5,9 @@ const DropdownView = BaseView.extend({
         'click': 'clickHandler'
     },
 
+    /**
+     * Updates the config bar with the data the user selects
+     */
     clickHandler: function (e) {
         e.preventDefault();
         let element = e.currentTarget;

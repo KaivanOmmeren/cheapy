@@ -10,6 +10,10 @@ const SelectBlockView = BaseView.extend({
         'click': 'clickHandler',
     },
 
+    /**
+     * Checks which select block is selected and adds the selected class making it bigger so the user sees its selected
+     * When a block is selected an event is trigger to load the selected data
+     */
     clickHandler: function (e) {
         let element = e.currentTarget;
         $(element).toggleClass('selectBlockClicked');
@@ -23,6 +27,9 @@ const SelectBlockView = BaseView.extend({
         this.noneSelected();
     },
 
+    /**
+     * Removes all the selected classes
+     */
     removeAllSelected: function () {
         for (let item of $('.selectBlockClicked')) {
             $(item).removeClass('selectBlockClicked');
@@ -30,11 +37,18 @@ const SelectBlockView = BaseView.extend({
         App.events.trigger('selectedRemoved');
     },
 
+    /**
+     * Checks if there are no blocks selected and triggers an event
+     */
     noneSelected: function () {
         if ($('.selectBlockClicked').length === 0) {
             App.events.trigger('noneSelected');
         }
     },
+
+    /**
+     * Reselects a block automatically
+     */
     reAddSelectedClass: function (data) {
         switch(data.product) {
             case 'diapers': {

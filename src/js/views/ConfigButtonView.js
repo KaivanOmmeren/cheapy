@@ -1,12 +1,14 @@
 import BaseView from "./BaseView";
 
+/**
+ * Handels the config button and makes the configuration bar visible
+ */
 const ConfigButtonView = BaseView.extend({
     events: {
         'click': 'clickHandler'
     },
 
     clickHandler: function (e) {
-        //App.events.trigger('removeAllSelectedItems');
         App.events.trigger('configButtonTriggered', {
             triggered: true
         });

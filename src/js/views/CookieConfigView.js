@@ -2,6 +2,9 @@ import BaseView from "./BaseView";
 
 const CookieConfigView = BaseView.extend({
     initialize() {
+        /**
+         * Check if the cookie has value and add the data in the config bar
+         */
         if (this.model.hasValue()) {
             App.events.once('noneSelected' && 'getData', this.checkForReselectBlock, this);
             this.animate();
@@ -22,6 +25,9 @@ const CookieConfigView = BaseView.extend({
     events: {
         'click': 'clickHandler'
     },
+    /**
+     * Checks if the config bar is not empty and saves the data entered in the config bar to the cookie
+     */
     clickHandler: function (e) {
         for (let item of $('.dropdown-toggle')){
             if($(item).attr('data-value') == 'none'){
@@ -44,6 +50,9 @@ const CookieConfigView = BaseView.extend({
         });
     },
 
+    /**
+     * Animates the select blocks up
+     */
     animate: function () {
         $('#blockDiapers').animate({
             top: "-=190px"
@@ -68,8 +77,11 @@ const CookieConfigView = BaseView.extend({
             'opacity': '1'
         }, 'slow');
     },
+
+    /**
+     * If nothing is selected but there is a category in the url, reselect that block
+     */
     checkForReselectBlock: function (data) {
-        //console.log('Reselect triggered');
         App.events.trigger('reselectBlock', {
             product: data.product
         });

@@ -29,6 +29,10 @@ const ProductsCollectionView = BaseView.extend({
         "click .resultWrapper": "detailClickHandler",
         "click .back": "backClickHandler",
     },
+
+    /**
+     * If the config button is triggered set the global bool to true so the select blocks can't be selected
+     */
     setConfigState: function (data) {
         if (data.triggered === true) {
             this.configActive = true;
@@ -36,6 +40,10 @@ const ProductsCollectionView = BaseView.extend({
             this.configActive = false;
         }
     },
+
+    /**
+     * Gets the url's from all the diaper products
+     */
     getDataDiapers: function () {
         if (this.modelCookie.hasValue() && this.configActive === false) {
             this.router.navigate('luiers', {trigger: true, replace: true});
@@ -53,6 +61,10 @@ const ProductsCollectionView = BaseView.extend({
             App.events.trigger('removeAllSelectedItems');
         }
     },
+
+    /**
+     * Gets the url's from all the milk products
+     */
     getDataMilk: function () {
         if (this.modelCookie.hasValue() && this.configActive === false) {
             this.router.navigate('melk', {trigger: true, replace: true});
@@ -69,6 +81,10 @@ const ProductsCollectionView = BaseView.extend({
             App.events.trigger('removeAllSelectedItems');
         }
     },
+
+    /**
+     * Gets the url's from all the baby-wipes products
+     */
     getDataBabyWipes: function () {
         if (this.modelCookie.hasValue() && this.configActive === false) {
             this.router.navigate('baby-doekjes', {trigger: true, replace: true});
@@ -85,6 +101,10 @@ const ProductsCollectionView = BaseView.extend({
             App.events.trigger('removeAllSelectedItems');
         }
     },
+
+    /**
+     * If nothing is selected but there is a category in the url, loads the items from that category
+     */
     reselectBlock: function (data) {
         switch (data.product) {
             case 'diapers': {
@@ -110,6 +130,10 @@ const ProductsCollectionView = BaseView.extend({
             }
         }
     },
+
+    /**
+     * Fetches data from all the single url's
+     */
     loadProducts: function (url, type) {
         if (url.length === 0) {
             this.noItemHandler();
@@ -123,6 +147,10 @@ const ProductsCollectionView = BaseView.extend({
             });
         }
     },
+
+    /**
+     * Fills the model with the response data, then adds the model to the collection, then fills the template
+     */
     loadProductsSuccessHandler: function (model, response, options) {
         let pieces = 0;
         if(options === 'milk') {
@@ -173,18 +201,27 @@ const ProductsCollectionView = BaseView.extend({
         this.collection.sort();
         this.$el.html(this.templateProductsOverview({products: this.collection.models}));
     },
+
     /**
-     * @param model
-     * @param response  * @param options  */
+     * Error handler
+     */
     loadProductsErrorHandler: function (model, response, options) {
         // console.dir(model);
         //console.dir(response);
         //console.dir(options);
         console.log('ERRORR');
     },
+
+    /**
+     * If there are no items based on the user's input, gives a message in the error template
+     */
     noItemHandler: function () {
         this.$el.html(this.templateError({message: 'Er zijn geen producten gevonden met uw criteria'}));
     },
+
+    /**
+     * If an item in the overview is clicked loads the detail page for that item
+     */
     detailClickHandler: function (e) {
         let element = e.currentTarget;
         let product = this.collection.get(element.dataset['id']);
@@ -192,11 +229,19 @@ const ProductsCollectionView = BaseView.extend({
         this.$el.html(this.templateProductsDetail({product: product}));
         this.animateUp();
     },
+
+    /**
+     * Goes back from the detail page to the overview page
+     */
     backClickHandler: function () {
         this.animateDown();
         this.$el.html(this.templateProductsOverview({products: this.collection.models}));
         this.animateUp();
     },
+
+    /**
+     * Animates the results block up
+     */
     animateUp: function () {
         this.$el.animate({
             'opacity': '1',
@@ -204,23 +249,23 @@ const ProductsCollectionView = BaseView.extend({
             'height': '400px'
         }, 'slow');
     },
+
+    /**
+     * Animates the results block down
+     */
     animateDown: function () {
         this.$el.animate({
             'opacity': '0',
             'margin-top': "0",
         }, 'fast');
     },
+
+    /**
+     * Removes all the results from the collection
+     */
     clearAll: function () {
         this.collection.reset();
         this.animateDown();
-    },
-    hasKey: function (obj, key) {
-        if (key in obj)
-            console.log(true);
-        for (let i in obj)
-            if (hasKey(obj[i], key))
-                console.log(true);
-        console.log(false);
     }
 });
 export default ProductsCollectionView

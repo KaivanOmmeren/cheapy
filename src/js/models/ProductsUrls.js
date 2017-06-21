@@ -1,8 +1,6 @@
 import {model} from 'backbone';
 
 const ProductsUrls = Backbone.Model.extend({
-        //url: '/api/proxy?url=https://api.bol.com/catalog/v4/products/9200000010559157?offers=cheapest&includeAttributes=false&format=json',
-        //url: 'https://docent.cmi.hr.nl/moora/imp03/api-2014/wedstrijden'
         diapers: [
             {
                 brand: 'Pampers Baby-Dry',
