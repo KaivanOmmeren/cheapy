@@ -42,8 +42,6 @@ const CookieConfigView = BaseView.extend({
             milk: $('#dropdownMenuMilk').attr('data-value'),
             babyWipes: $('#dropdownMenuBabyWipes').attr('data-value')
         });
-        // TweenMax.to('#blockDiapers', 2, {y:-190, ease:Elastic.easeOut});
-        // TweenLite.to('#blockDiapers', 1, {top:"-=190px", ease:Bounce.easeOut});
         this.animate();
         App.events.trigger('configButtonTriggered', {
             triggered: false

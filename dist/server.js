@@ -2,9 +2,10 @@ const express = require('express');
 const request = require('request');
 const crawler = require('./crawler');
 
-
+/**
+ * Added because i want to crawl different sites for data in the future, currently unused
+ */
 crawler();
-
 
 const app = express();
 
