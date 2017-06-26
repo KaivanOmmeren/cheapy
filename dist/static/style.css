@@ -443,6 +443,22 @@ a {
     letter-spacing: 0.4px;
 }
 
+.resultsCenter {
+    margin-top: 22px;
+}
+
+.resultsRight {
+    margin-top: 22px;
+}
+
+.overviewCenter h3 {
+    margin-top: 0;
+}
+
+.overviewRight h3 {
+    margin-top: 0;
+}
+
 .resultWrapper {
     height: 115px;
 }
@@ -450,6 +466,19 @@ a {
 .resultWrapper:hover {
     cursor: pointer;
 }
+
+hr {
+    margin: 0;
+    border-color: #F6F6F6;
+}
+
+/*#results:nth-child(odd) {*/
+    /*background-color: red;*/
+/*}*/
+
+/*#results:nth-child(1) {*/
+    /*background-color:#FF0000;*/
+/*}*/
 
 .back {
     font-family: Roboto-Medium;

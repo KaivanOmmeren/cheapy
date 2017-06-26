@@ -413,13 +413,13 @@
                 </script>
                 <script id="template-products-detail" type="text/template">
                     <div class="resultsLeft">
+                        <a><h4 class="back">< terug naar overzicht</h4></a>
                         <img class="detailImage" src="<%= product.get('imageUrl') %>">
                         <h3>Bestel online bij: </h3>
                         <a href="<%= product.get('url') %>" target="_blank">
                             <h3><%= product.get('displayName') %></h3>
                         </a>
                         <p><%= product.get('availabilityDescription') %></p>
-                        <a><h4 class="back">< terug naar overzicht</h4></a>
                     </div>
                     <div class="resultsCenter">
                         <h3><%= product.get('title') %></h3>
@@ -442,7 +442,7 @@
                         <div class="overviewCenter">
                             <h3><%= product.get('title') %></h3>
                             <p><%= product.get('summary') %></p>
-                            <p>verkoop door: <%= product.get('displayName') %></p>
+                            <p>Bestel online bij: <%= product.get('displayName') %></p>
                         </div>
                         <div class="overviewRight">
                             <h3>&euro; <%= product.get('price') %></h3>

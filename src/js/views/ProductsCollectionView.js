@@ -199,6 +199,7 @@ const ProductsCollectionView = BaseView.extend({
         this.collection.comparator = "pricePerPiece";
         this.collection.sort();
         this.$el.html(this.templateProductsOverview({products: this.collection.models}));
+        $( ".resultWrapper:odd" ).css( "background-color", "#F6F6F6" );
     },
 
     /**
