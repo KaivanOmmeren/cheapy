@@ -237,6 +237,7 @@ const ProductsCollectionView = BaseView.extend({
         this.animateDown();
         this.$el.html(this.templateProductsOverview({products: this.collection.models}));
         this.animateUp();
+        $( ".resultWrapper:odd" ).css( "background-color", "#F6F6F6" );
     },
 
     /**

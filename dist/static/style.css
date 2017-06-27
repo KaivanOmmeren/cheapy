@@ -399,8 +399,8 @@ button {
 .detailImage {
     width: auto;
     height: auto;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 180px;
+    max-height: 180px;
     display: block;
     margin: auto;
 }
@@ -487,5 +487,18 @@ hr {
     letter-spacing: 0.3px;
     line-height: 16px;
     text-align: center;
+}
+
+.buy-btn {
+    border-color: #44AECD;
+    background-color: #44AECD;
+    color: #FFFFFF;
+    margin: 5px 0 15px 45px;
+}
+
+.buy-btn:hover {
+    border-color: #44AECD;
+    background-color: #FFFFFF;
+    color: #44AECD;
 }
 

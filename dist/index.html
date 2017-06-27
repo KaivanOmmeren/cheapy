@@ -415,9 +415,9 @@
                     <div class="resultsLeft">
                         <a><h4 class="back">< terug naar overzicht</h4></a>
                         <img class="detailImage" src="<%= product.get('imageUrl') %>">
-                        <h3>Bestel online bij: </h3>
-                        <a href="<%= product.get('url') %>" target="_blank">
-                            <h3><%= product.get('displayName') %></h3>
+                        <h3>Bestel online bij: <%= product.get('displayName') %></h3>
+                        <a href="<%= product.get('url') %>" target="_blank" type="button" class="btn btn-lg btn-default buy-btn">
+                            Bestel nu
                         </a>
                         <p><%= product.get('availabilityDescription') %></p>
                     </div>
